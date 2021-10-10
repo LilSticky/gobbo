@@ -1,20 +1,35 @@
 <template>
-  <div class="home p-d-flex p-jc-center">
-    <div class="p-d-flex-column p-md-4">
-      <img alt="Vue logo" src="../assets/logo.png" />
-      <Login />
-    </div>
-  </div>
+  <h1>Welcome, {{ name }}</h1>
+  <Button class="logout" @click="logout">Logout</Button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import Login from "@/components/Login.vue";
+<script>
+import { ref, onBeforeMount } from "vue";
+import { getAuth } from "firebase/auth";
 
-export default defineComponent({
-  name: "Home",
-  components: {
-    Login,
+export default {
+  setup() {
+    const name = ref("");
+    onBeforeMount(() => {
+      const user = getAuth().currentUser;
+      if (user) {
+        name.value = user.email.split("@")[0];
+      }
+    });
+
+    const logout = () => {
+      getAuth()
+        .signOut()
+        .then(() => "signed out")
+        .catch((e) => console.error(e.message));
+    };
+    return {
+      name,
+      logout,
+    };
   },
-});
+};
 </script>
+
+<style>
+</style>

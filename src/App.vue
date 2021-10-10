@@ -1,11 +1,31 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
   <router-view />
 </template>
 
+<script lang="ts">
+import { onBeforeMount } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+export default {
+  setup() {
+    const router = useRouter();
+    const route = useRoute();
+    const auth = getAuth();
+
+    onBeforeMount(() => {
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          router.replace("/login");
+        } else if (route.path == "/login" || route.path == "/register") {
+          router.replace("/");
+        }
+      });
+    });
+    return {};
+  },
+};
+</script>
 <style lang="scss">
 body {
   margin: 0;
@@ -22,18 +42,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: inherit;
 }
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+a {
+  color: #ffd54f;
 }
 </style>
