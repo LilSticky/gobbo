@@ -39,6 +39,8 @@ import Toast from "primevue/toast";
 import InputSwitch from "primevue/inputswitch";
 import Divider from "primevue/divider";
 import Dropdown from "primevue/dropdown";
+import PanelMenu from 'primevue/panelmenu';
+import MenuBar from 'primevue/menubar';
 
 app
   .component("Button", Button)
@@ -46,7 +48,9 @@ app
   .component("Toast", Toast)
   .component("InputSwitch", InputSwitch)
   .component("Divider", Divider)
-  .component("Dropdown", Dropdown);
+  .component("Dropdown", Dropdown)
+  .component("PanelMenu", PanelMenu)
+  .component("MenuBar", MenuBar);
 
 // Initialize
 app.mount("#app");
