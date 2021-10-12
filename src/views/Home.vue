@@ -1,6 +1,8 @@
 <template>
-  <h1>Welcome, {{ name }}</h1>
-  <Button class="logout" @click="logout">Logout</Button>
+  <div class="home">
+    <h1>Welcome, {{ name }}</h1>
+    <Button class="logout" @click="logout">Logout</Button>
+  </div>
 </template>
 
 <script>

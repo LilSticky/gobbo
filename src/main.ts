@@ -41,6 +41,7 @@ import Divider from "primevue/divider";
 import Dropdown from "primevue/dropdown";
 import PanelMenu from 'primevue/panelmenu';
 import MenuBar from 'primevue/menubar';
+import InputNumber from 'primevue/inputnumber';
 
 app
   .component("Button", Button)
@@ -50,7 +51,8 @@ app
   .component("Divider", Divider)
   .component("Dropdown", Dropdown)
   .component("PanelMenu", PanelMenu)
-  .component("MenuBar", MenuBar);
+  .component("MenuBar", MenuBar)
+  .component("InputNumber", InputNumber);
 
 // Initialize
 app.mount("#app");

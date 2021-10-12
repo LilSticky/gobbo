@@ -8,7 +8,7 @@ Based on the adventure [Zufallsdungeon](https://howtobeahero.de/index.php?title=
     - [ ] Character
     - [/] Map
     - [ ] Settings
-    - [ ] Create Game
+    - [/] Game
     - [ ] Dungeon Master
 - [ ] Components
     - [ ] Character Sheet

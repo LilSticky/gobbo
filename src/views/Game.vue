@@ -2,14 +2,16 @@
   <Map />
 </template>
 
-<script>
+<script lang="ts">
 import Map from "@/components/Map.vue";
 export default {
   components: {
     Map,
   },
   setup() {
-    return {};
+    return {
+      Map,
+    };
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="Map">
-    <hex-grid width="1000" height="1000">
+    <hex-grid width="100%" height="100%">
       <layout :size="{ x: 7, y: 7 }">
         <hexagon
           v-for="(hex, i) in hexagons"
@@ -17,6 +17,7 @@
 <script lang="ts">
 // @ts-ignore
 import { HexGrid, Layout, Hexagon, GridGenerator } from "vue-hexgrid";
+
 export default {
   name: "Map",
   components: {
